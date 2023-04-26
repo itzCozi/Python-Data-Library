@@ -1,2 +1,3 @@
-# New-Python-Package
-A liberay containng functions i made and use frequrently 
+# Python-Developer-Library
+
+This package contains all the functions i made and use frequently.
