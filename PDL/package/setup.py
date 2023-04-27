@@ -25,6 +25,6 @@ setup(
             "Development Status :: 1 - Beta",
             "Intended Audience :: Developers",
             "Programming Language :: Python :: 3",
-            "Operating System :: Microsoft :: Windows :: Linux",
+            "Operating System :: Microsoft :: Windows :: Linux :: Unix",
         ]
 )

@@ -1,0 +1,12 @@
+# - Comment
+# https://macromates.com/manual/en/language_grammars
+# https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
+
+{food}  # food class
+pizza = 'Peporoni'  # pizza variable within food class
+bread = 'rye'  # bread variable within food class
+cheese = 'mozzarella'  # cheese variable within food class
+bread - cheeese = pizza # releationship combining bread and cheese to make pizza
+
+{class2}
+variable = '1N'
