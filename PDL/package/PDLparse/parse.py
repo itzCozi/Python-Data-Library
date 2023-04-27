@@ -1,6 +1,6 @@
 import os, sys
 
-def parsePDL(file):
+def get_variable(file):
   with open(file, 'r') as Fin:
     content = Fin.read()
 
