@@ -1,7 +1,7 @@
 {
-  "name": "pdl-highlighting",
-  "displayName": "PDL Highlighting",
-  "description": "Custom syntax highlighting for .pdl files",
+  "name": "pdl-hl",
+  "displayName": "pdl-highlighting",
+  "description": "Added syntax support for .pdl files",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
@@ -13,8 +13,8 @@
     "languages": [{
       "id": "pdl",
       "aliases": ["pdl", "pdl"],
-      "extensions": [""],
-      "configuration": "./language-configuration.json"
+      "extensions": [".pdl"],
+      "configuration": "./pdl-config.json"
     }],
     "grammars": [{
       "language": "pdl",
