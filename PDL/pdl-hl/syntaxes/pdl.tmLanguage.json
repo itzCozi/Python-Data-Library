@@ -28,7 +28,7 @@
 			}]
 		},
 		"types": {
-			"match": "\\b(str|int|list|bool)\\b",
+			"match": "\\b(str|int|list|bool|raw)\\b",
 			"name": "constant.language.pdl"
 		},
 		"constant": {
