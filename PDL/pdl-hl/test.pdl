@@ -4,6 +4,7 @@ class test {
   raw file_path = /'C:/source/calc/add.py'/
   list array = ['Pizza', 'Taco', 'Burger']
   bool torf = true
+  str namehandle = new name
   
   '''
     Dope docstring
