@@ -3,11 +3,11 @@
 # https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
 
 food {
-  pizza = 'Peporoni'  # pizza variable within food class
-  bread = 'rye'  # bread variable within food class
-  cheese = 'mozzarella'  # cheese variable within food class
+  str(pizza = 'Peporoni')  # pizza variable within food class
+  str(bread = 'rye')  # bread variable within food class
+  str(cheese = 'mozzarella')  # cheese variable within food class
 }
 
 class2 {
-  variable = '1N'
+  int(variable = '1N')
 }
