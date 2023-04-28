@@ -1,0 +1,39 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "pdl",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.class.pdl",
+				"match": "\\b(class|priv|ext|new)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.pdl",
+			"begin": "'",
+			"end": "'",
+			"patterns": [{
+				"name": "constant.character.escape.pdl",
+				"match": "\\."
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "type.str.pdl",
+				"match": "\\b(const|str|int|list|path)\\b"
+			}]
+		}
+	},
+	"scopeName": "source.pdl"
+}
