@@ -14,7 +14,7 @@
       "id": "pdl",
       "aliases": ["pdl", "pdl"],
       "extensions": [".pdl"],
-      "configuration": "./pdl-config.json"
+      "configuration": "./language-configuration.json"
     }],
     "grammars": [{
       "language": "pdl",

@@ -1,0 +1,141 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "pdl",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#array"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#commentblock"
+		},
+		{
+			"include": "#docblock"
+		},
+		{
+			"include": "#class"
+		},
+		{
+			"include": "#symbols"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.class.pdl",
+				"match": "\\b(class|priv|ext|handle)\\b"
+			}]
+		},
+		"symbols": {
+			"patterns": [{
+				"name": "punctuation.symbol.pdl",
+				"match": "\\b(=|;)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.pdl",
+			"begin": "'",
+			"end": "'",
+			"patterns": [{
+				"name": "constant.character.escape.pdl",
+				"match": "\\."
+			}]
+		},
+		"types": {
+			"match": "\\b(str|int|list)\\b",
+			"name": "language.types.pdl"
+		},
+		"constant": {
+			"match": "\\b(?:true|false|null)\\b",
+			"name": "constant.language.pdl"
+		},
+		"array": {
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.begin.pdl"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.end.pdl"
+				}
+			},
+			"name": "meta.structure.array.pdl",
+			"patterns": [
+				{
+					"match": ",",
+					"name": "punctuation.separator.array.pdl"
+				},
+				{
+					"match": "[^\\s\\]]",
+					"name": "invalid.illegal.expected-array-separator.pdl"
+				}
+			]
+		},
+		"class": {
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.class.begin.pdl"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.class.end.pdl"
+				}
+			}
+		},
+		"commentblock": {
+			"begin": "#*",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.blockComment.begin.pdl"
+				}
+			},
+			"end": "*#",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.blockComment.end.pdl"
+				}
+			}
+		},
+		"comments": {
+			"patterns": [{
+				"name": "punctuation.definition.comments.line.pdl",
+				"match": "\\b(//|#)\\b"
+			}]
+		},
+		"docblock": {
+			"begin": "\\'''",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.blockcomment.begin.pdl"
+				}
+			},
+			"end": "\\'''",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.blockcomment.end.pdl"
+				}
+			}
+		}
+	},
+	"scopeName": "source.pdl"
+}
