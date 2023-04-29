@@ -1,0 +1,115 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "pdl",
+	"patterns": [
+		{"include": "#keywords"},
+		{"include": "#types"},
+		{"include": "#strings"},
+		{"include": "#commentstring"},
+		{"include": "#array"},
+		{"include": "#constants"},
+		{"include": "#comments"},
+		{"include": "#docblock"}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.class.pdl",
+				"match": "\\b(class|priv|new)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.pdl",
+			"begin": "'",
+			"end": "'",
+			"patterns": [{
+				"name": "constant.character.escape.pdl",
+				"match": "\\."
+			}]
+		},
+		"types": {
+			"match": "\\b(str|int|list|bool|raw|float)\\b",
+			"name": "constant.language.pdl"
+		},
+		"constants": {
+			"match": "\\b(?:true|false|null)\\b",
+			"name": "constant.language.pdl"
+		},
+		"array": {
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.begin.pdl"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.end.pdl"
+				}
+			},
+			"name": "meta.structure.array.pdl",
+			"patterns": [
+				{
+					"include": "#value"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.array.pdl"
+				},
+				{
+					"match": "[^\\s\\]]",
+					"name": "invalid.illegal.expected-array-separator.pdl"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*\\*(?!/)",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.pdl"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.documentation.pdl"
+				},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.pdl"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.pdl"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.pdl"
+						}
+					},
+					"match": "(//).*$\\n?",
+					"name": "comment.line.double-slash.pdl"
+				}
+			]
+		},
+		"docblock": {
+			"begin": "'''",
+			"beginCaptures": {
+				"0": {
+					"name": "comment.block.documentation.start.pdl"
+				}
+			},
+			"end": "'''",
+			"endCaptures": {
+				"0": {
+					"name": "comment.block.documentation.end.pdl"
+				}
+			}
+		}
+	},
+	"scopeName": "source.pdl"
+}
