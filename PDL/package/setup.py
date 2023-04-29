@@ -1,10 +1,10 @@
 # https://www.freecodecamp.org/news/build-your-first-python-package/
 from setuptools import setup, find_packages
 
-VERSION = '1.2' 
-DESCRIPTION = 'A package for cryptography in python with unique functions'
+VERSION = '1.0' 
+DESCRIPTION = 'A package for extracting data from pdl librarys in python'
 LONG_DESCRIPTION = '''
-A python package for cryptography and data mixing from strings/files more on github.
+A python package for extracting and handling data from `.pdl` librarys more on github.
 
         https://github.com/itzCozi/HashBrowns-Python
 '''
