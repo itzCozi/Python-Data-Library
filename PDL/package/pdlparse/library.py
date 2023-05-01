@@ -77,7 +77,6 @@ def format_lib(library):
   
   with open(library, 'r') as file:
     file_content = file.read()
-  
   for line in file_content.splitlines():
     if '}' in line:
       index = line.find('}')
@@ -92,6 +91,27 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace(f'{name}', f'class {name}')
           edit.write(replacement)
+    if 'int' in line:
+      if "'" in line:
+        index_var = line.find("'")
+        variable = line[index_var+1:-1]
+        with open(library, 'w') as edit:
+          replacement = file_content.replace(f"'{variable}'", f"{variable}")
+          edit.write(replacement)
+    if 'str' in line:
+      if not "'" in line:
+        index_var = line.find('=')
+        variable = line[index_var+2:]
+        with open(library, 'w') as edit:
+          replacement = file_content.replace(f"{variable}", f"'{variable}'")
+          edit.write(replacement)
+    if 'flt' in line:
+      if "'" in line:
+        index_var = line.find("'")
+        variable = line[index_var+1:-1]
+        with open(library, 'w') as edit:
+          replacement = file_content.replace(f"'{variable}'", f"{variable}")
+          edit.write(replacement)
     else:
       pass
-    
+

@@ -6,12 +6,12 @@ DESCRIPTION = 'A package for extracting data from pdl librarys in python'
 LONG_DESCRIPTION = '''
 A python package for extracting and handling data from `.pdl` librarys more on github.
 
-        https://github.com/itzCozi/HashBrowns-Python
+        https://github.com/itzCozi/Python-Data-Library
 '''
 
 # Setting up
 setup(
-    name="hashbrowns", 
+    name="PDLparse", 
     version=VERSION,
     author="Cooper ransom",
     author_email="Cooperransom08@outlook.com",
@@ -20,7 +20,7 @@ setup(
     packages=find_packages(),
     install_requires=[], 
     
-    keywords=['python', 'crypto', 'cryptograpgy', 'rsa', 'hashing-algo'],
+    keywords=['python', 'data', 'library', 'minimalistic', 'like-toml'],
         classifiers= [
             "Development Status :: 1 - Beta",
             "Intended Audience :: Developers",
