@@ -84,6 +84,7 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace('}', '};')
           edit.write(replacement)
+          continue
     if '{' in line:
       index = line.find('{')
       name = line[0:index-1]
@@ -91,6 +92,7 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace(f'{name}', f'class {name}')
           edit.write(replacement)
+          continue
     if 'int' in line:
       if "'" in line:
         index_var = line.find("'")
@@ -98,6 +100,7 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace(f"'{variable}'", f"{variable}")
           edit.write(replacement)
+          continue
     if 'str' in line:
       if not "'" in line:
         index_var = line.find('=')
@@ -105,6 +108,7 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace(f"{variable}", f"'{variable}'")
           edit.write(replacement)
+          continue
     if 'flt' in line:
       if "'" in line:
         index_var = line.find("'")
@@ -112,6 +116,34 @@ def format_lib(library):
         with open(library, 'w') as edit:
           replacement = file_content.replace(f"'{variable}'", f"{variable}")
           edit.write(replacement)
+          continue
+    if 'raw' in line:
+      if not "'" or '/' in line:
+        index_var = line.find('=')
+        variable = line[index_var+2:]
+        with open(library, 'w') as edit:
+          replacement = file_content.replace(f"{variable}", f"/'{variable}'/")
+          edit.write(replacement)
+          continue
     else:
       pass
+
+
+def remove_comments(library):
+  if not os.path.exists(library):
+    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+
+  with open(library, 'r+') as file:
+    retlist = []
+    file_content = file.read()
+  for line in file_content.split('\n'):
+    if "//" in line:
+      index = line.find("//")
+      string = line[index:].replace("// ", "")
+      retlist.append(string)
+    for item in retlist:
+      with open(library, 'w') as edit:
+        replacement = file_content.replace(string, '')
+        edit.write(replacement)
+  return retlist
 
