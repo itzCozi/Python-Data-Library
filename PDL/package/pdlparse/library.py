@@ -133,6 +133,17 @@ def format_lib(library):
       pass
 
 
+def rm_library(library):
+  # Burry the library 6-feet under. (delete it)
+  if not os.path.exists(library):
+    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+  
+  try:
+    os.remove(library)
+  except Exception as e:
+    raise Exception(f'ERROR: An unknown error occurred during runtime \n{e}\n')
+
+
 def remove_comments(library):
   # Removes all comments from a library
   if not os.path.exists(library):
