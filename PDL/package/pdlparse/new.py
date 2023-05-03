@@ -24,8 +24,8 @@ __COMMENTS__
 */
     \n''')
     file.write('class main { \
-       \n  int number = 23 \
-       \n};')
+      \n  int number = 23 \
+      \n};')
 
 
 def create_lib_script(library, script_name):
@@ -40,7 +40,7 @@ def create_lib_script(library, script_name):
   with open(new_file, 'w') as new:
     new.write("import os, sys \n")
     new.write("import pdlparse as pdl \n")
-    new.write("variables = pdl.parse.scrap_library('test.pdl')")
+    new.write(f"variables = pdl.parse.scrap_library('{library}')")
 
 
 def create_manifest(dir):
@@ -62,4 +62,3 @@ def create_manifest(dir):
     file.write('-_LIBS_-\n')
     for item in libs:
       file.write(f'{item}\n')
-
