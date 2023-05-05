@@ -1,3 +1,6 @@
+# TODO: Add skips for variables with `priv` in the same line in all get functions
+# TODO: Add a function to retrive variables from file and create program vars (https://stackoverflow.com/questions/924700/best-way-to-retrieve-variable-values-from-a-text-file)
+
 import os, sys
 
 '''
