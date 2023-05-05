@@ -16,7 +16,7 @@ def get_libs(dir):
 def get_lib_info(library):
   # Returns information on the given library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
   
   with open(library, 'r') as file:
     file_content = file.read()
@@ -32,14 +32,14 @@ def get_lib_info(library):
         pass
   
   else:
-    raise Exception(f'ERROR: Package pdlparse cannot find vars or classes in {library}.')
+    raise Exception(f'[ERROR] Package pdlparse cannot find vars or classes in {library}.')
   return f'variable# = {var_count} class# = {class_count}'
 
 
 def get_main_lib(base_dir):
   # Finds main library if there are any
   if not os.path.exists(base_dir):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {base_dir}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {base_dir}.')
   
   retlist = []
   for r, d, f in os.walk(base_dir):
@@ -59,7 +59,7 @@ def get_main_lib(base_dir):
 def read_lib(library, aloud=False):
   # Reads the given library aloud or returns it
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
   
   with open(library, 'r') as file:
     retlist = []
@@ -77,7 +77,7 @@ def read_lib(library, aloud=False):
 def format_lib(library):
   # Fixes any soft-errors found in library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
   
   with open(library, 'r') as file:
     file_content = file.read()
@@ -136,18 +136,18 @@ def format_lib(library):
 def rm_library(library):
   # Burry the library 6-feet under. (delete it)
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
   
   try:
     os.remove(library)
   except Exception as e:
-    raise Exception(f'ERROR: An unknown error occurred during runtime \n{e}\n')
+    raise Exception(f'[ERROR] An unknown error occurred during runtime \n{e}\n')
 
 
 def remove_comments(library):
   # Removes all comments from a library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r+') as file:
     retlist = []

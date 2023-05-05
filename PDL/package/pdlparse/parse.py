@@ -34,12 +34,12 @@ class utility:
     elif 'flt' in assumed_type:
       return 'floating_point'
     else:
-      raise Exception('ENGINE-ERROR: A fatal function was passed a incomprehensible argument')
+      raise Exception('ENGINE-[ERROR] A fatal function was passed a incomprehensible argument')
 
   def findClass(library, var, type, value):
     # Searches for variables class and returns it
     if not os.path.exists(library):
-      raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+      raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
     with open(library, 'r+') as file:
       file_content = file.read()
@@ -64,7 +64,7 @@ class utility:
 def scrap_library(library):
   # Get all variables in library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r+') as file:
     retlist = []
@@ -90,7 +90,7 @@ def scrap_library(library):
 def get_variable(library, variable):
   # Get a variables value based on its name
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r') as Fin:
     content = Fin.read()
@@ -105,13 +105,13 @@ def get_variable(library, variable):
             type = utility.typeProcessor(line[0:5])
           return str(f'{value}, {type}')
   else:
-    raise Exception(f'ERROR: Package pdlparse cannot find {variable} in {library}.')
+    raise Exception(f'[ERROR] Package pdlparse cannot find {variable} in {library}.')
 
 
 def filter_file(library, word):
   # Remove given word from library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
   with open(library, "r+") as Fin:
     content = Fin.read()
   if word in content:
@@ -119,13 +119,13 @@ def filter_file(library, word):
       write_item = content.replace(word, "")
       Fout.write(write_item)
   else:
-    raise Exception(f'ERROR: {word} cannot be found in {library}')
+    raise Exception(f'[ERROR] {word} cannot be found in {library}')
 
 
 def get_strings(library):
   # Get all strings from library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r+') as file:
     retlist = []
@@ -141,7 +141,7 @@ def get_strings(library):
 def get_class(library, target_class):
   # Get all variables in given class
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r') as Fin:
     content = Fin.read()
@@ -168,13 +168,13 @@ def get_class(library, target_class):
                 file.close()
           return retlist
   else:
-    raise Exception(f'ERROR: Package pdlparse cannot find {target_class} in {library}.')
+    raise Exception(f'[ERROR] Package pdlparse cannot find {target_class} in {library}.')
 
 
 def get_type(library, target_type):
   # Get all variables with given type
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r') as Fin:
     content = Fin.read()
@@ -200,13 +200,13 @@ def get_type(library, target_type):
                 pass
           return retlist
   else:
-    raise Exception(f'ERROR: Package pdlparse cannot find {target_type} in {library}.')
+    raise Exception(f'[ERROR] Package pdlparse cannot find {target_type} in {library}.')
 
 
 def get_value(library, target_value):
   # Get information about a variable based on its value
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r') as Fin:
     content = Fin.read()
@@ -234,13 +234,13 @@ def get_value(library, target_value):
                 pass
           return retlist
   else:
-    raise Exception(f'ERROR: Package pdlparse cannot find {target_value} in {library}.')
+    raise Exception(f'[ERROR] Package pdlparse cannot find {target_value} in {library}.')
 
 
 def get_comments(library):
   # Gets all comments from given library
   if not os.path.exists(library):
-    raise FileNotFoundError(f'ERROR: Package pdlparse cannot find file {library}.')
+    raise FileNotFoundError(f'[ERROR] Package pdlparse cannot find file {library}.')
 
   with open(library, 'r+') as file:
     retlist = []

@@ -1,4 +1,3 @@
-# https://www.freecodecamp.org/news/build-your-first-python-package/
 from setuptools import setup, find_packages
 
 VERSION = '1.0' 
@@ -11,7 +10,7 @@ A python package for extracting and handling data from `.pdl` librarys more on g
 
 # Setting up
 setup(
-    name="PDLparse", 
+    name="pdlparse", 
     version=VERSION,
     author="Cooper ransom",
     author_email="Cooperransom08@outlook.com",
@@ -20,7 +19,7 @@ setup(
     packages=find_packages(),
     install_requires=[], 
     
-    keywords=['python', 'data', 'library', 'minimalistic', 'like-toml'],
+    keywords=['python', 'data', 'library', 'minimalistic', 'data', 'like-toml'],
         classifiers= [
             "Development Status :: 1 - Beta",
             "Intended Audience :: Developers",

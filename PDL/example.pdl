@@ -1,13 +1,16 @@
-# - Comment
-# https://macromates.com/manual/en/language_grammars
-# https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
-
-food {
-  str(pizza = 'Peporoni')  # pizza variable within food class
-  str(bread = 'rye')  # bread variable within food class
-  str(cheese = 'mozzarella')  # cheese variable within food class
-}
-
-class2 {
-  int(variable = '1N')
-}
+class test {
+  str name = 'charlie'
+  int number = 2
+  // `raw` means the parser ignores back-slash's
+  raw file_path = /'C:/source/calc/add.py'/
+  list array = ['Pizza', 'Taco', 'Burger']
+  bool torf = true
+  str namehandle = new name
+  
+  '''
+    Dope docstring
+  '''
+  // This is a comment
+  /* This is a 
+  block comment */
+};
